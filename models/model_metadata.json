@@ -1,0 +1,497 @@
+{
+  "model_name": "logistic_regression_pipeline",
+  "model_version": "1.0.0",
+  "model_type": "Pipeline",
+  "trained_at": "2026-08-21T21:21:08.180914+00:00",
+  "feature_count": 54,
+  "raw_feature_count": 54,
+  "expanded_feature_count": 182,
+  "features": [
+    "watch_time",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "duration_seconds",
+    "days_since_upload",
+    "view_count",
+    "like_count",
+    "comment_count",
+    "share_count",
+    "trending_score",
+    "avg_watch_time_seconds",
+    "retention_rate",
+    "engagement_rate",
+    "hashtag_count",
+    "description_length",
+    "age",
+    "account_age_days",
+    "subscriber_count",
+    "subscription_count",
+    "total_watch_time_minutes",
+    "total_video_views",
+    "total_likes_given",
+    "total_shares_given",
+    "total_comments_given",
+    "avg_session_length_minutes",
+    "completion_rate",
+    "watch_time_normalized",
+    "watch_vs_video_average",
+    "user_like_rate",
+    "user_share_rate",
+    "user_comment_rate",
+    "video_like_rate",
+    "video_share_rate",
+    "video_comment_rate",
+    "category_match",
+    "device_type",
+    "platform",
+    "gender",
+    "country",
+    "language",
+    "preferred_category",
+    "is_premium",
+    "category",
+    "video_language",
+    "video_quality",
+    "top_country",
+    "has_music",
+    "has_text_overlay",
+    "has_effects",
+    "has_voiceover",
+    "is_vertical",
+    "is_monetized"
+  ],
+  "raw_features": [
+    "watch_time",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "duration_seconds",
+    "days_since_upload",
+    "view_count",
+    "like_count",
+    "comment_count",
+    "share_count",
+    "trending_score",
+    "avg_watch_time_seconds",
+    "retention_rate",
+    "engagement_rate",
+    "hashtag_count",
+    "description_length",
+    "age",
+    "account_age_days",
+    "subscriber_count",
+    "subscription_count",
+    "total_watch_time_minutes",
+    "total_video_views",
+    "total_likes_given",
+    "total_shares_given",
+    "total_comments_given",
+    "avg_session_length_minutes",
+    "completion_rate",
+    "watch_time_normalized",
+    "watch_vs_video_average",
+    "user_like_rate",
+    "user_share_rate",
+    "user_comment_rate",
+    "video_like_rate",
+    "video_share_rate",
+    "video_comment_rate",
+    "category_match",
+    "device_type",
+    "platform",
+    "gender",
+    "country",
+    "language",
+    "preferred_category",
+    "is_premium",
+    "category",
+    "video_language",
+    "video_quality",
+    "top_country",
+    "has_music",
+    "has_text_overlay",
+    "has_effects",
+    "has_voiceover",
+    "is_vertical",
+    "is_monetized"
+  ],
+  "raw_feature_cols": [
+    "watch_time",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "duration_seconds",
+    "days_since_upload",
+    "view_count",
+    "like_count",
+    "comment_count",
+    "share_count",
+    "trending_score",
+    "avg_watch_time_seconds",
+    "retention_rate",
+    "engagement_rate",
+    "hashtag_count",
+    "description_length",
+    "age",
+    "account_age_days",
+    "subscriber_count",
+    "subscription_count",
+    "total_watch_time_minutes",
+    "total_video_views",
+    "total_likes_given",
+    "total_shares_given",
+    "total_comments_given",
+    "avg_session_length_minutes",
+    "completion_rate",
+    "watch_time_normalized",
+    "watch_vs_video_average",
+    "user_like_rate",
+    "user_share_rate",
+    "user_comment_rate",
+    "video_like_rate",
+    "video_share_rate",
+    "video_comment_rate",
+    "category_match",
+    "device_type",
+    "platform",
+    "gender",
+    "country",
+    "language",
+    "preferred_category",
+    "is_premium",
+    "category",
+    "video_language",
+    "video_quality",
+    "top_country",
+    "has_music",
+    "has_text_overlay",
+    "has_effects",
+    "has_voiceover",
+    "is_vertical",
+    "is_monetized"
+  ],
+  "numeric_features": [
+    "watch_time",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "duration_seconds",
+    "days_since_upload",
+    "view_count",
+    "like_count",
+    "comment_count",
+    "share_count",
+    "trending_score",
+    "avg_watch_time_seconds",
+    "retention_rate",
+    "engagement_rate",
+    "hashtag_count",
+    "description_length",
+    "age",
+    "account_age_days",
+    "subscriber_count",
+    "subscription_count",
+    "total_watch_time_minutes",
+    "total_video_views",
+    "total_likes_given",
+    "total_shares_given",
+    "total_comments_given",
+    "avg_session_length_minutes",
+    "completion_rate",
+    "watch_time_normalized",
+    "watch_vs_video_average",
+    "user_like_rate",
+    "user_share_rate",
+    "user_comment_rate",
+    "video_like_rate",
+    "video_share_rate",
+    "video_comment_rate",
+    "category_match"
+  ],
+  "categorical_features": [
+    "device_type",
+    "platform",
+    "gender",
+    "country",
+    "language",
+    "preferred_category",
+    "is_premium",
+    "category",
+    "video_language",
+    "video_quality",
+    "top_country",
+    "has_music",
+    "has_text_overlay",
+    "has_effects",
+    "has_voiceover",
+    "is_vertical",
+    "is_monetized"
+  ],
+  "target_definition": "liked OR shared OR commented OR followed_creator OR replayed",
+  "split_strategy": "chronological",
+  "training_rows": 160000,
+  "test_rows": 40000,
+  "positive_rate": 0.278685,
+  "min_category_frequency": 0.01,
+  "metrics": {
+    "auc": 0.563204,
+    "accuracy": 0.71895
+  },
+  "top_coefficients": [
+    {
+      "feature": "num__watch_time",
+      "importance": 0.23071,
+      "coefficient": 0.23071
+    },
+    {
+      "feature": "cat__is_premium_true",
+      "importance": 0.088508,
+      "coefficient": -0.088508
+    },
+    {
+      "feature": "cat__has_music_true",
+      "importance": 0.088466,
+      "coefficient": -0.088466
+    },
+    {
+      "feature": "cat__is_vertical_false",
+      "importance": 0.08495,
+      "coefficient": -0.08495
+    },
+    {
+      "feature": "cat__has_text_overlay_true",
+      "importance": 0.084255,
+      "coefficient": -0.084255
+    },
+    {
+      "feature": "cat__language_en",
+      "importance": 0.08337,
+      "coefficient": -0.08337
+    },
+    {
+      "feature": "cat__is_monetized_true",
+      "importance": 0.080997,
+      "coefficient": -0.080997
+    },
+    {
+      "feature": "cat__has_effects_false",
+      "importance": 0.08058,
+      "coefficient": -0.08058
+    },
+    {
+      "feature": "cat__video_quality_720p",
+      "importance": 0.080542,
+      "coefficient": -0.080542
+    },
+    {
+      "feature": "cat__has_voiceover_true",
+      "importance": 0.080014,
+      "coefficient": -0.080014
+    },
+    {
+      "feature": "cat__preferred_category_Beauty",
+      "importance": 0.07847,
+      "coefficient": -0.07847
+    },
+    {
+      "feature": "cat__has_voiceover_false",
+      "importance": 0.074444,
+      "coefficient": -0.074444
+    },
+    {
+      "feature": "cat__video_quality_1080p",
+      "importance": 0.073917,
+      "coefficient": -0.073917
+    },
+    {
+      "feature": "cat__has_effects_true",
+      "importance": 0.073878,
+      "coefficient": -0.073878
+    },
+    {
+      "feature": "cat__is_monetized_false",
+      "importance": 0.073461,
+      "coefficient": -0.073461
+    },
+    {
+      "feature": "cat__top_country_US",
+      "importance": 0.072833,
+      "coefficient": -0.072833
+    },
+    {
+      "feature": "cat__has_text_overlay_false",
+      "importance": 0.070203,
+      "coefficient": -0.070203
+    },
+    {
+      "feature": "cat__is_vertical_true",
+      "importance": 0.069508,
+      "coefficient": -0.069508
+    },
+    {
+      "feature": "cat__preferred_category_Kids",
+      "importance": 0.066621,
+      "coefficient": -0.066621
+    },
+    {
+      "feature": "cat__has_music_false",
+      "importance": 0.065993,
+      "coefficient": -0.065993
+    },
+    {
+      "feature": "cat__is_premium_false",
+      "importance": 0.065951,
+      "coefficient": -0.065951
+    },
+    {
+      "feature": "cat__top_country_TH",
+      "importance": 0.06061,
+      "coefficient": -0.06061
+    },
+    {
+      "feature": "cat__platform_web",
+      "importance": 0.06003,
+      "coefficient": -0.06003
+    },
+    {
+      "feature": "cat__device_type_desktop",
+      "importance": 0.058319,
+      "coefficient": -0.058319
+    },
+    {
+      "feature": "cat__preferred_category_Travel",
+      "importance": 0.05729,
+      "coefficient": -0.05729
+    },
+    {
+      "feature": "cat__top_country_VN",
+      "importance": 0.056319,
+      "coefficient": -0.056319
+    },
+    {
+      "feature": "cat__gender_F",
+      "importance": 0.054373,
+      "coefficient": -0.054373
+    },
+    {
+      "feature": "cat__video_language_zh",
+      "importance": 0.052458,
+      "coefficient": -0.052458
+    },
+    {
+      "feature": "cat__gender_M",
+      "importance": 0.052329,
+      "coefficient": -0.052329
+    },
+    {
+      "feature": "cat__device_type_mobile",
+      "importance": 0.049672,
+      "coefficient": -0.049672
+    },
+    {
+      "feature": "cat__top_country_IT",
+      "importance": 0.049488,
+      "coefficient": -0.049488
+    },
+    {
+      "feature": "cat__country_VN",
+      "importance": 0.048212,
+      "coefficient": -0.048212
+    },
+    {
+      "feature": "cat__platform_android",
+      "importance": 0.047915,
+      "coefficient": -0.047915
+    },
+    {
+      "feature": "cat__gender_O",
+      "importance": 0.047757,
+      "coefficient": -0.047757
+    },
+    {
+      "feature": "cat__video_language_it",
+      "importance": 0.047618,
+      "coefficient": -0.047618
+    },
+    {
+      "feature": "cat__language_vi",
+      "importance": 0.047344,
+      "coefficient": -0.047344
+    },
+    {
+      "feature": "cat__platform_ios",
+      "importance": 0.046514,
+      "coefficient": -0.046514
+    },
+    {
+      "feature": "cat__device_type_tablet",
+      "importance": 0.046467,
+      "coefficient": -0.046467
+    },
+    {
+      "feature": "cat__language_ja",
+      "importance": 0.046121,
+      "coefficient": 0.046121
+    },
+    {
+      "feature": "cat__category_Pets",
+      "importance": 0.041595,
+      "coefficient": -0.041595
+    },
+    {
+      "feature": "cat__language_sv",
+      "importance": 0.039102,
+      "coefficient": -0.039102
+    },
+    {
+      "feature": "cat__top_country_KR",
+      "importance": 0.03832,
+      "coefficient": -0.03832
+    },
+    {
+      "feature": "cat__category_Fitness",
+      "importance": 0.037688,
+      "coefficient": -0.037688
+    },
+    {
+      "feature": "cat__preferred_category_Fitness",
+      "importance": 0.034138,
+      "coefficient": 0.034138
+    },
+    {
+      "feature": "num__total_likes_given",
+      "importance": 0.034015,
+      "coefficient": -0.034015
+    },
+    {
+      "feature": "cat__preferred_category_Motivation",
+      "importance": 0.033582,
+      "coefficient": -0.033582
+    },
+    {
+      "feature": "cat__country_JP",
+      "importance": 0.032468,
+      "coefficient": -0.032468
+    },
+    {
+      "feature": "cat__language_hi",
+      "importance": 0.032197,
+      "coefficient": 0.032197
+    },
+    {
+      "feature": "cat__language_tr",
+      "importance": 0.032177,
+      "coefficient": -0.032177
+    },
+    {
+      "feature": "cat__language_es",
+      "importance": 0.032172,
+      "coefficient": -0.032172
+    }
+  ]
+}

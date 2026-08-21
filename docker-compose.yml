@@ -1,0 +1,48 @@
+# Two services from one image. The dashboard talks to the API over the compose
+# network, which is why ANALYTICS_API_URL points at the service name rather than
+# at localhost.
+#
+# One worker, deliberately. The request log lives in this process's memory, so a
+# second worker would hold a second, disjoint log and the dashboard would show
+# whichever one the load balancer happened to route it to. See
+# docs/ANALYTICS.md — this is the honest limit of an in-memory buffer, not an
+# oversight.
+
+services:
+  api:
+    build: .
+    image: analytics-dashboard:latest
+    command: >
+      uvicorn analytics_dashboard.api:app
+      --host 0.0.0.0 --port 8000 --workers 1
+    environment:
+      # Set to 1 to enable the demonstration backfill route. Everything it
+      # writes is flagged, and the dashboard says so.
+      ANALYTICS_ALLOW_BACKFILL: "0"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request,json,sys;
+              b=json.load(urllib.request.urlopen('http://127.0.0.1:8000/health'));
+              sys.exit(0 if b['model_loaded'] else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  dashboard:
+    build: .
+    image: analytics-dashboard:latest
+    command: >
+      streamlit run app.py
+      --server.port 8501 --server.address 0.0.0.0
+    environment:
+      ANALYTICS_API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
