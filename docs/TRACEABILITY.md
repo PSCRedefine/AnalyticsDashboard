@@ -79,12 +79,17 @@ blind spot for short incidents inside a long window. See
 
 ### 3.6 — Empty and error handling
 
+The specification states the two messages below in Chinese. They are rendered
+in English so that the whole interface is in one language; the wording is a
+direct translation and the behaviour is unchanged. This is the only place
+where the implementation departs from the specification's literal text.
+
 | Criterion | Implementation | Evidence |
 |---|---|---|
 | Empty `data` → no charts | `if not rows: … st.stop()` | [screenshot](../image/ui_empty_window.png) |
-| Message `当前时间窗口内没有可展示的数据。` | Verbatim, with an English line naming the fix | same |
+| Message `No data to display in the current time window.` | Translated from the specification, followed by a line naming the fix | same |
 | Rendering stops | `st.stop()` | same |
-| Endpoint failure → `数据源不可用：{error}` | Verbatim on both call sites | Read `app.py` |
+| Endpoint failure → `Data source unavailable: {error}` | Translated from the specification, on both call sites | Read `app.py` |
 | `None` → `-` | `number()` | [screenshot](../image/ui_empty_window.png) |
 | A null probability point is allowed | Nulls pass through to Plotly | `test_a_bucket_of_only_failures_has_no_probability` |
 | No previous window → no delta | Server nulls the averages; the page drops the count delta | `test_delta_against_an_empty_previous_window_is_null_not_the_current_value` |
@@ -157,6 +162,6 @@ by `test_summary_returns_every_field_the_page_reads` and
 | 5 | Four trend charts | same |
 | 6 | Charts and raw table agree | `test_the_summary_total_matches_the_sum_of_the_buckets`, [screenshot](../image/ui_alerts_and_raw_data.png) |
 | 7 | Empty window shows a prompt, not a blank or an error | [screenshot](../image/ui_empty_window.png) |
-| 8 | Endpoint failure shows an error | `数据源不可用：{error}` on both call sites |
+| 8 | Endpoint failure shows an error | `Data source unavailable: {error}` on both call sites |
 | 9 | Thresholds produce banners | [screenshot](../image/ui_alerts_and_raw_data.png) |
 | 10 | Raw Data expands | same |

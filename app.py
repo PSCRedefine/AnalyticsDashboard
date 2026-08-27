@@ -143,14 +143,14 @@ window = {"start": start.isoformat(), "end": end.isoformat()}
 
 summary = call_api("analytics/summary", params=window)
 if failure(summary):
-    st.error(f"数据源不可用：{failure(summary)}")
-    st.caption("The analytics source is unavailable — start the API, then reload this page.")
+    st.error(f"Data source unavailable: {failure(summary)}")
+    st.caption("Start the API, then reload this page.")
     st.stop()
 
 series = call_api("analytics/timeseries", params={**window, "interval": DEFAULT_INTERVAL})
 if failure(series):
-    st.error(f"数据源不可用：{failure(series)}")
-    st.caption("The analytics source is unavailable — start the API, then reload this page.")
+    st.error(f"Data source unavailable: {failure(series)}")
+    st.caption("Start the API, then reload this page.")
     st.stop()
 
 current = summary.get("current") or {}
@@ -215,10 +215,9 @@ if probability_drift is not None and abs(probability_drift) >= PROBABILITY_DRIFT
 rows = series.get("data") or []
 if not rows:
     st.info(
-        "当前时间窗口内没有可展示的数据。\n\n"
-        "No requests were logged in this window. The log is in memory and starts "
-        "empty on every restart — call `/predict`, or run "
-        "`python scripts/seed_traffic.py`, then reload."
+        "No data to display in the current time window.\n\n"
+        "The log is in memory and starts empty on every restart — call "
+        "`/predict`, or run `python scripts/seed_traffic.py`, then reload."
     )
     st.stop()
 
