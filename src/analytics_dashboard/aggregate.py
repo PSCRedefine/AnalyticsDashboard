@@ -133,6 +133,14 @@ def timeseries(entries: list[dict[str, Any]], interval: str) -> list[dict[str, A
     frame["is_error"] = frame["status_code"].map(is_error).astype(float)
     if "probability" not in frame.columns:
         frame["probability"] = np.nan
+    else:
+        # `summarise` treats an absent `probability` key and an explicit None as
+        # the same thing, and this function has to agree: both aggregate the
+        # same entries, and a test asserts their totals match. A column of Nones
+        # arrives as dtype object, and the mean of an object column cannot be
+        # rounded. Coercing here means this function's contract is the entries
+        # it is given, not whatever normalisation the log store applied first.
+        frame["probability"] = pd.to_numeric(frame["probability"], errors="coerce")
 
     span = frame.index.max() - frame.index.min()
     if span / duration > MAX_BUCKETS:
