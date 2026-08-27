@@ -1,13 +1,15 @@
 # Analytics Dashboard
 
+[![tests](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml/badge.svg)](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml)
+
 Traffic and model-output monitoring for the **Cognitive Shorts** prediction
 service: a FastAPI middleware that records every request it serves, two
 aggregation endpoints over that log, and a Streamlit page that turns them into
 four numbers and four charts.
 
 Built to [docs/SPEC.md](docs/SPEC.md). 101 tests.
-Fourth in the series, after [SinglePrediction](https://github.com/PSCRedefine/SinglePrediction),
-[BatchPrediction](https://github.com/PSCRedefine/BatchPrediction) and ModelInfo.
+
+*Four of four in [a series](#the-series):*  [Single Prediction](https://github.com/PSCRedefine/SinglePrediction) → [Batch Prediction](https://github.com/PSCRedefine/BatchPrediction) → [Model Info](https://github.com/PSCRedefine/ModelInfo) → **Analytics Dashboard**
 
 ![Analytics Dashboard](image/ui_analytics_dashboard.png)
 
@@ -24,6 +26,7 @@ Fourth in the series, after [SinglePrediction](https://github.com/PSCRedefine/Si
 - [Repository layout](#repository-layout)
 - [Verification](#verification)
 - [Limitations](#limitations)
+- [The series](#the-series)
 
 ---
 
@@ -188,6 +191,7 @@ docs/
   API.md                            Endpoint reference
   ANALYTICS.md                      The decisions and their reasoning
   DEPLOYMENT.md                     Docker, configuration, operating notes
+  PRODUCTION_READINESS.md           What it would need to carry real traffic
 ```
 
 ## Verification
@@ -208,6 +212,11 @@ disagrees with its own chart is worse than no page.
 
 ## Limitations
 
+This section lists what is known to be missing or imperfect in what was built.
+A wider account — what this service would need before it carries real traffic,
+ordered by risk, with the cost of each remedy — is in
+[docs/PRODUCTION_READINESS.md](docs/PRODUCTION_READINESS.md).
+
 - **The log does not survive a restart.** A deploy resets the dashboard to its
   empty state. This is what an in-memory deque honestly is.
 - **It is per process.** Two uvicorn workers hold two disjoint logs and the page
@@ -223,3 +232,19 @@ disagrees with its own chart is worse than no page.
 - **`avg_probability` mixes endpoints.** Every logged probability is averaged
   together. With one prediction route that is exact; add a second and the chart
   becomes a blend until you filter by `endpoint`.
+
+---
+
+## The series
+
+Four repositories, read in this order, are one product line: score one, score
+many, check what is deployed, then watch it in production.
+
+1. [Single Prediction](https://github.com/PSCRedefine/SinglePrediction) — one prediction per request — feature selection, model choice, calibration and the operating point
+2. [Batch Prediction](https://github.com/PSCRedefine/BatchPrediction) — up to 100 rows per call, with per-row fault isolation
+3. [Model Info](https://github.com/PSCRedefine/ModelInfo) — what is actually loaded in memory, and what that tells you
+4. **Analytics Dashboard** *(you are here)* — traffic and model-output monitoring over a request log
+
+Each repository runs on its own. The cost of that is stated plainly in each
+Limitations section: `features.py`, the API skeleton and the model artefact
+are duplicated across all four.
