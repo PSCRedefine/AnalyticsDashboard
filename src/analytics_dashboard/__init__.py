@@ -1,3 +1,3 @@
-"""Request analytics for the Cognitive Shorts prediction service."""
+"""Request analytics for the RankShift Serving prediction service."""
 
 __version__ = "1.0.0"

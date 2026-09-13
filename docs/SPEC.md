@@ -4,7 +4,7 @@
 
 ### 1.1 Page Purpose 
 
-Analytics Dashboard is a system monitoring and analysis module within the Cognitive Shorts system front-end UI (built on Streamlit). This page displays how the back-end recommendation service has been running over a period of time, including request volume, average response time, error rate and the trend of the model output probability, so that it can be judged quickly whether the system is running normally. 
+Analytics Dashboard is a system monitoring and analysis module within the RankShift Serving system front-end UI (built on Streamlit). This page displays how the back-end recommendation service has been running over a period of time, including request volume, average response time, error rate and the trend of the model output probability, so that it can be judged quickly whether the system is running normally. 
 
 ### 1.2 Page Goals 
 

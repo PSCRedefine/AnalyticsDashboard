@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml/badge.svg)](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml)
 
-Traffic and model-output monitoring for the **Cognitive Shorts** prediction
+Traffic and model-output monitoring for the **RankShift Serving** prediction
 service: a FastAPI middleware that records every request it serves, two
 aggregation endpoints over that log, and a Streamlit page that turns them into
 four numbers and four charts.

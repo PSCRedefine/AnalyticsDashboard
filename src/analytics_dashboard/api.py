@@ -213,7 +213,7 @@ def create_app(
     store: RequestLogStore | None = None,
 ) -> FastAPI:
     app = FastAPI(
-        title="Cognitive Shorts — Analytics API",
+        title="RankShift Serving — Analytics API",
         version=__version__,
         description="Prediction service with in-memory request analytics.",
     )

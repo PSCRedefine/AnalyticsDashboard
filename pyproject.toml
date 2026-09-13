@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "analytics-dashboard"
 version = "1.0.0"
-description = "Request analytics API and Streamlit dashboard for Cognitive Shorts"
+description = "Request analytics API and Streamlit dashboard for RankShift Serving"
 requires-python = ">=3.11,<3.14"
 
 [tool.setuptools.packages.find]

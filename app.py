@@ -38,7 +38,7 @@ ERROR_RATE_ALERT = 0.02
 RESPONSE_TIME_ALERT_MS = 300.0
 PROBABILITY_DRIFT_ALERT = 0.1
 
-st.set_page_config(page_title="Cognitive Shorts", page_icon="📈", layout="wide")
+st.set_page_config(page_title="RankShift Serving", page_icon="🎯", layout="wide")
 
 
 def call_api(path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
