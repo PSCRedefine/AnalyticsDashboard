@@ -47,9 +47,10 @@ because its input mix changed.
 
 ## Live demo
 
-A static, interactive capture of the dashboard lives in [`public/index.html`](public/index.html)
-and deploys to Vercel with the committed `vercel.json` (framework: none, output
-directory `public`). It embeds real responses from `/analytics/summary` and
+A static, interactive capture of the dashboard is live at
+**[rankshift-nine.vercel.app/serving/analytics](https://rankshift-nine.vercel.app/serving/analytics/)**
+(mirrored from [`public/index.html`](public/index.html); this repo's `vercel.json`
+deploys it standalone too). It embeds real responses from `/analytics/summary` and
 `/analytics/timeseries` — a healthy week and a degraded one, at three intervals —
 and re-implements the page's rendering rules in the browser: same KPI formats,
 same alert thresholds (adjustable there), same null handling.

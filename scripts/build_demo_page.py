@@ -7,16 +7,19 @@ and /analytics/timeseries at three intervals, for a healthy week and a
 degraded one) and re-implements the page's rendering rules in the browser —
 same KPI formatting, same alert thresholds, same null handling.
 
-    python scripts/build_demo_page.py        # writes public/index.html
+    python scripts/build_demo_page.py                    # writes public/index.html
+    python scripts/build_demo_page.py ../rankshift/public/serving/analytics/index.html
+                                                         # also mirrored on the RankShift site
 """
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEMO, OUT = ROOT / "demo", ROOT / "public" / "index.html"
+DEMO = ROOT / "demo"
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "public" / "index.html"
 
 data = {}
 for scenario in ("healthy", "degraded"):
@@ -186,6 +189,6 @@ footer{margin-top:44px;font-size:14px;color:var(--muted);border-top:1px solid va
 </script>
 </body></html>
 '''
-OUT.parent.mkdir(exist_ok=True)
+OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(HTML.replace("__DATA__", payload).replace("__CAPTURED__", captured))
 print(f"wrote {OUT} ({OUT.stat().st_size/1000:.0f} KB), captured {captured}")
