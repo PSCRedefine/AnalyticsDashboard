@@ -45,6 +45,20 @@ this an ML dashboard rather than a web dashboard: a model can be perfectly
 healthy by every transport metric while quietly scoring everything at 0.9
 because its input mix changed.
 
+## Live demo
+
+A static, interactive capture of the dashboard lives in [`public/index.html`](public/index.html)
+and deploys to Vercel with the committed `vercel.json` (framework: none, output
+directory `public`). It embeds real responses from `/analytics/summary` and
+`/analytics/timeseries` — a healthy week and a degraded one, at three intervals —
+and re-implements the page's rendering rules in the browser: same KPI formats,
+same alert thresholds (adjustable there), same null handling.
+
+It is a capture, not the service. The live dashboard is two long-running
+processes over an in-memory log, which static hosting cannot run; the page says
+so. Regenerate it after recapturing with `python scripts/build_demo_page.py`
+from `demo/*.json`.
+
 ## Quick start
 
 With Docker:
