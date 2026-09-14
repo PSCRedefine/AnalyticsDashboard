@@ -1,6 +1,6 @@
 # Analytics Dashboard
 
-[![tests](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml/badge.svg)](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml)
+[![tests](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml/badge.svg)](https://github.com/PSCRedefine/AnalyticsDashboard/actions/workflows/tests.yml) [![live demo](https://img.shields.io/badge/live%20demo-rankshift--nine.vercel.app-8b7bff?logo=vercel&logoColor=white)](https://rankshift-nine.vercel.app/serving/analytics/)
 
 Traffic and model-output monitoring for the **RankShift Serving** prediction
 service: a FastAPI middleware that records every request it serves, two
