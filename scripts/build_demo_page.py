@@ -81,7 +81,7 @@ footer{margin-top:44px;font-size:14px;color:var(--muted);border-top:1px solid va
 </head>
 <body><div class="wrap">
 <header>
-  <div class="eyebrow">RankShift Serving · request analytics · captured __CAPTURED__</div>
+  <div class="eyebrow"><a href="/serving/" style="color:inherit;text-decoration:none">RankShift Serving · plain-language tour</a> · station 04 · request analytics · captured __CAPTURED__</div>
   <h1>📈 Analytics Dashboard</h1>
   <p class="thesis">Is the service being called, is it slowing down, are errors rising, and has the model's output distribution moved? Four numbers and four charts, derived from a request log the service writes about itself.</p>
 </header>
